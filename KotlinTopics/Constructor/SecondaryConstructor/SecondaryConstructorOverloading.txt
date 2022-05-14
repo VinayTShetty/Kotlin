@@ -1,0 +1,13 @@
+fun main(args: Array<String>) {
+   var emp= Emp("Vinay T Shetty", 99999)
+   var emp_1= Emp("Vinay T Shetty", 99999,"Mysore")
+}
+
+class Emp {
+    constructor(name: String, empSalary: Int) {
+        println("Name= ${name}\nSalary= ${empSalary}")
+    }
+    constructor(name: String, empSalary: Int,address:String) {
+        println("Name= ${name}\nSalary= ${empSalary}\nAddress=${address}")
+    }
+}

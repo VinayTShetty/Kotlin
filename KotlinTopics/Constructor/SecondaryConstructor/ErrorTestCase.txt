@@ -1,0 +1,20 @@
+Cannot use var/val as argument inside the secondary constructor of Kotlin.
+
+Programe
+********
+
+fun main(args: Array<String>) {
+println("Hello Worls")
+}
+
+class Emp{
+
+    constructor(var empName:String){
+        println("Name= ${empName}")
+    }
+}
+
+Error:-
+
+ 'var' on secondary constructor parameter is not allowed
+***************************************************************************************************************

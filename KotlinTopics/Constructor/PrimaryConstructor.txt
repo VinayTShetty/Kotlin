@@ -1,0 +1,13 @@
+Primary Constructor
+
+The primary constructor is initialized in the class header, goes after the class name, using the constructor keyword.
+The parameters are optional in the primary constructor.
+
+
+fun main(args: Array<String>) {
+    println("Hello World!")
+}
+
+class Emp constructor(val name:String,val empId:Int){
+
+}

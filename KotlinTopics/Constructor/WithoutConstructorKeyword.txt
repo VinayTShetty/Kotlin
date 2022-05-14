@@ -1,0 +1,13 @@
+fun main(args: Array<String>) {
+    println("Hello World!")
+}
+
+/**
+ *  constructor key word can be Omitted
+ *  1) If we don t have any annotation
+ *  2)Acess Modifiers are specified
+ */
+
+class Company(val employeSalary:Double,val empAddress:String){
+
+}

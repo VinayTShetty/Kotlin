@@ -1,0 +1,12 @@
+Reference :- https://www.geeksforgeeks.org/kotlin-constructor/
+
+
+Kotlin constructor
+
+A constructor is a special member function that is invoked when an object of the class is created primarily to initialize variables or properties
+A class needs to have a constructor and if we do not declare a constructor, then the compiler generates a default constructor.
+
+Kotlin has two types of constructors –
+
+Primary Constructor
+Secondary Constructor 

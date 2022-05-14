@@ -1,0 +1,14 @@
+fun main(args: Array<String>) {
+    val emp=Emp("Vinay",9999999999.99)
+}
+
+class Emp constructor(val empName:String,val empSalary:Double){
+    var name:String
+    val salary:Double
+    init {
+        name=empName
+        salary=empSalary
+        println("The init Block Executed")
+        println("Name=${name}\nSalary=${salary}")
+    }
+}

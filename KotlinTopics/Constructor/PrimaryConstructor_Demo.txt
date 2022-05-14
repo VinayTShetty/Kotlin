@@ -1,0 +1,9 @@
+fun main(args: Array<String>) {
+    val emp=Emp("Vinay",9999999999.99)
+    println(emp.empDetails)
+}
+
+class Emp constructor(val empName:String,val empSalary:Double){
+    val empDetails="Emp Name = ${empName}\nEmp Salary = ${ empSalary}"
+
+}

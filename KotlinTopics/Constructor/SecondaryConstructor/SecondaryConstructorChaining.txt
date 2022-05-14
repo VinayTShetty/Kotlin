@@ -1,0 +1,14 @@
+A secondary constructor may call another secondary constructor of the same class using this() function.
+
+fun main(args: Array<String>) {
+   Emp("Vinay T Shetty", 99999)
+}
+
+class Emp {
+    constructor(name: String, empSalary: Int) :this("Vinay T Shetty", 99999,"Mysore"){
+        println("Name= ${name}\nSalary= ${empSalary}")
+    }
+    constructor(name: String, empSalary: Int,address:String) {
+        println("Name= ${name}\nSalary= ${empSalary}\nAddress=${address}")
+    }
+}

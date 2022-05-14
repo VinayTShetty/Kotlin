@@ -1,0 +1,22 @@
+Default value in primary constructor 
+
+Similar to default values in functions, 
+we can initialize the constructor parameters with some default values
+
+Programe
+********
+
+fun main(args: Array<String>) {
+    val emp=Emp("Vinay",9999999999.99)
+    println(emp.empDetails)
+
+    /**
+     * Constructor using Default Values for Emp constructor
+     */
+    val emp_1=Emp()
+    println(emp_1.empDetails)
+}
+
+class Emp constructor(val empName:String="Please Provide Emp Name",val empSalary:Double=0.0){
+    val empDetails="EmpName= ${empName}\nSalary=${empSalary}"
+}

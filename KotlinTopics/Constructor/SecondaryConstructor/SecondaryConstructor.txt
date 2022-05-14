@@ -1,0 +1,19 @@
+Secondary Constructor
+
+Kotlin may have one or more secondary constructors
+Secondary constructors allow initialization of variables and allow to provide some logic to the class as well
+They are prefixed with the constructor keyword
+
+
+Programe
+********
+
+fun main(args: Array<String>) {
+   var emp= Emp("Vinay T Shetty", 99999)
+}
+
+class Emp {
+    constructor(name: String, empSalary: Int) {
+        println("Name= ${name}\nSalary= ${empSalary}")
+    }
+}
