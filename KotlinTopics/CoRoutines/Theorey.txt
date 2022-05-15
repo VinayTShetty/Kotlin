@@ -1,0 +1,12 @@
+Co-Routine
+
+1)Doing more intesive task on main thread will crash the applicaion.
+2)To alter that if we keep creating background Thread for each and every task,It will lead to "Out of Memory" error
+
+To avoid this we can use co-routine
+
+
+Like threads coroutines can 
+1)Run in parallel
+2)wait for each other
+3)communicate with each other
