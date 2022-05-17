@@ -1,0 +1,25 @@
+CoRoutines Builder
+CoRoutine Builders are used to create coroutines
+
+There are 3 types of coroutines builders.
+1)launch
+2)async
+3)runBlocking
+
+
+launch
+******
+ a)GlobalScope.launch{}
+   Its actually a companion Object
+   Its remains active untill the application is kept active.
+   Ex:-File Downlaod,Music
+
+ b)launch{}
+   Its local co routine
+   Once the activity/fragments is destroyed the corresponsing coroutine will be lost.
+   Ex:-Some data computation
+
+
+async
+*****
+ a)GlobalScope.launch{}
