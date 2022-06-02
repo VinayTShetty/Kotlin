@@ -1,0 +1,45 @@
+fun main() {
+    /**
+     * apply return the contex object.
+     */
+    var person = Person()
+    person.apply {
+        name="Lakshmi"
+        this.age=25
+        salary=100000
+    }
+    println("Printing Person Details= "+person.toString())
+
+    /**
+     * we can directly call without using the reference variable.
+     */
+    var employe = Person().
+    apply {
+        name="Employee Name"
+        this.age=60
+        salary=1000000
+    }
+    println("Details of the Employee= ${employe}")
+
+    /**
+     * Apply
+     * Using apply we can call the function of the class.
+     */
+    var person_1 = Person()
+    person_1.apply {
+    }.personDetails("MindTree")
+
+}
+
+class Person {
+    var name = "Vinay T Shetty"
+    var age = 28
+    var salary = 50000
+    fun personDetails(companyName: String) {
+        println("Person Details is ${companyName}")
+    }
+
+    override fun toString(): String {
+        return "Age= ${age}, Name= ${name} ,Salary=${salary} "
+    }
+}

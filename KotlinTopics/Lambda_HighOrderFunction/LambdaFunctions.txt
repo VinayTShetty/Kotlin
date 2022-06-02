@@ -1,0 +1,105 @@
+High level Functions
+
+1)Can accept a function as parameter.
+2)can return a function
+3)or can do Both
+
+
+Lambda 
+Its just a function without name
+
+
+Normal Programe To add 2 numbers
+********************************
+fun main(args: Array<String>) {
+    val programe=Programe()
+    programe.addTwoNumber(10,20)
+}
+
+class Programe {
+    fun addTwoNumber(num_1: Int, num_2: Int) {
+        val sum = num_1 + num_2
+        println("The sum of two numbers = ${sum}")
+    }
+}
+
+Programe to add 2 numbers using interface
+*****************************************
+fun main(args: Array<String>) {
+    val programe=Programe()
+    programe.addTwoNumber(10,20)
+    /**
+     * Passing an interface inside the method as parameter
+     *
+     * 1)we cannot insitate or create Object for the interface.
+     * 2)To use the interface
+     *   a)We neeed to create a class that implements this interface.
+     *     ex :- In java we are using new OnCliclistner(....)
+     *     But we cannot use new keyword in Kotlin,So using Object keyWord.
+     */
+    programe.add(50,60,object:Action{
+        override fun execute(sum: Int) {
+           println("The Sum of 2 Numbers is ${sum}")
+        }
+
+    })
+}
+
+class Programe {
+    fun addTwoNumber(num_1: Int, num_2: Int) {
+        val sum = num_1 + num_2
+    }
+
+    /**
+     * This method will use interface as parameter
+     */
+    fun add(num_1: Int, num_2: Int,action:Action) {
+        val sum = num_1 + num_2
+        action.execute(sum)
+    }
+}
+
+interface Action{
+    fun execute(sum :Int)
+}
+***********************************************************************************************************
+fun main(args: Array<String>) {
+    val programe=Programe()
+    /**
+     * Lamdba Function
+     */
+    var lambdaExp:(Int)->Unit= {total:Int-> println("The Total Sum of 2 numbers is ${total}")}
+    programe.add(50,60,lambdaExp)
+}
+
+class Programe {
+
+    /**
+     * Mehtod Parmeter explanation
+     *
+     *  variable Name          Method Signature         Return Type
+     *  lambdaExpressino:     (Int)             ->        Unit
+     */
+    fun add(num_1: Int, num_2: Int,lambdaExpressino:(Int)->Unit) {
+        var total=num_1+num_2;
+        lambdaExpressino(total) //
+    }
+}
+
+
+/**
+ * Number of Ways to Define Lambda Function
+
+a) var lambdaExample= {myname:String-> println(myname)}
+
+ Explanation :-
+                     method params    method body
+var lambdaExample= {myname:String-> println(myname)}
+
+b) var lambdaExampl:(String)->Unit= {myname:String-> println(myname)}
+
+Explanation :-
+                          Signature    ReturnType    method params     method body
+      var lambdaExampl:  (String)->     Unit=        {myname:String-> println(myname)}
+
+ */

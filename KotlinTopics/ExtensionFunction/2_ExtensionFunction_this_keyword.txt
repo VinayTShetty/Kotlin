@@ -1,0 +1,20 @@
+/**
+ *   Create a extension Function for a class Int.
+ */
+
+fun main() {
+    var whatNumber = 50
+    println(whatNumber.isOddEven())
+}
+
+fun Int.isOddEven(): String {
+    /**
+     * The this keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot).
+     */
+    if (this % 2 == 0) {
+        return "EVEN"
+    } else if (this % 2 != 0) {
+        return "ODD"
+    } else return "INVlALID NUMBER"
+}
+

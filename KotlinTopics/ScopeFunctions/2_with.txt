@@ -1,0 +1,30 @@
+fun main() {
+    var person = Person()
+
+    /**
+     *  Person class Properties can be refered by using 'this' or directly.
+     *  Return type is the lambda result
+     *  
+     *  Note:- we cannot call the method using with() function. i.e personDetails() in Person class
+     */
+    var alteredname: String = with(person) {
+        this.name = "Lakshmi"
+        age = 25
+        salary = 100000
+        "VinayLakshmi"
+    }
+    println("Altered Name= ${alteredname}")
+}
+
+class Person {
+    var name = "Vinay T Shetty"
+    var age = 28
+    var salary = 50000
+    fun personDetails(companyName: String) {
+        println("Person Details is ${companyName}")
+    }
+
+    override fun toString(): String {
+        return "Age= ${age}, Name= ${name} ,Salary=${salary} "
+    }
+}

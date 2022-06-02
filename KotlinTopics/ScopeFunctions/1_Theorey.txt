@@ -1,0 +1,49 @@
+why we need to use scope fucntions
+**********************************
+fun main() {
+    var person=Person()
+    /**
+     * Code redudancy is there,Due to repetion of the object instance
+     */
+    person.name="Lakshmi"
+    person.age=25
+    person.salary=50000
+    println("Using Normal \n"+person.toString())
+
+    /**
+     * Using scope function we can write the code in more precise manner.
+     */
+    var person_1=Person().apply {
+        name="Vinay Lakshmi"
+        age=1
+        salary=100000
+    }
+    println("Using Apply \n"+person_1.toString())
+}
+
+class Person{
+    var name="Vinay T Shetty"
+    var age =28
+    var salary=50000
+    override fun toString(): String {
+        return "Age= ${age}, Name= ${name} ,Salary=${salary} "
+    }
+}
+
+**********************************************************************************************************
+There are 5 types of scope functions
+
+These scope function can be differentiated by 2 ways.
+
+1)The way to refer to context Object.
+  This is done eiether using 'this' or 'it' keywords
+2)Return the Context Object or Lambda Result.
+
+
+           context Object			   retutn type
+
+with		this				 lambda Result
+let		it				 lambda Result
+apply           this   				Context Object
+run		this				lambda Result
+also		it				Context Object

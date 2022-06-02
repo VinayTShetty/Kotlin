@@ -1,0 +1,20 @@
+fun main(args: Array<String>) {
+   var programe=Programe()
+    programe.reverse("Vinay T Shetty",{name->name.reversed()})
+
+    /**
+     * when ever we are having only one parameter,
+     * {name->name.reversed()}
+     * we can replace
+     *  parameter and -> sign
+     * { it.reversed}
+     */
+    programe.reverse("Lakshmi",{it.reversed()}) // This concept is applicable if we have only one parameter
+}
+
+class Programe {
+    fun reverse(str:String,reverseFunction:(String)->String){
+      var reverseString=  reverseFunction(str)
+        println(reverseString)
+    }
+}

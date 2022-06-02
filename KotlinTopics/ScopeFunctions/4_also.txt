@@ -1,0 +1,18 @@
+fun main() {
+    /**
+     * also function is used to perfrorm some additional operation on the object after we have initialized it.
+     *
+     * 1)Refers to the context object by using 'it'
+     * 2)The return value is the 'context object'
+     */
+
+    /**
+     * Example 1
+     */
+    var value = 1
+    var anotherValue = value.also { it + 1 }.also { it + 1 }.also{
+        println("The value of the resource is ${it+5}")
+    }
+  println(value)
+  println(anotherValue)
+}

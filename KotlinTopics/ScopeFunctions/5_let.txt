@@ -1,0 +1,11 @@
+/**
+ * The block will get executed only if the value is not null.
+  
+ */
+
+fun main() {
+    var name:String?=null
+    name?.let {
+        println("Name Length= "+it.length)
+    }
+}

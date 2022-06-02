@@ -25,3 +25,13 @@ fun main(args: Array<String>) {
    }
 
 }
+
+
+/**
+  launch coroutine builder (Fire and Forget)
+1)launch coroutine creates a new coroutines without blocking the current Thread
+2)inherits the Threads and coroutine scope of the immediate parent coroutine.
+3)Returs a reference of the Job Object.
+  Using the job object we can cancel() and join() the coroutine.
+ Using the job coroutine we can cancel the coroutine and wait () for the coroutine to finish.
+ */

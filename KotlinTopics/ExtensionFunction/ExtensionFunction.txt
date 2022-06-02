@@ -1,0 +1,42 @@
+Extension Function
+
+Kotlin extension function provides a facility to "add" methods to class without inheriting a class or using any type of design pattern. 
+
+Syntax for the Extension function
+*********************************
+
+fun <class_name>.<method_name>()  
+
+
+Example of Student class.
+where only Absent and Present method was avaliable.
+But Leave method was not avaliable so added the leave method as extension function.
+
+
+fun main() {
+    var studentAttendance_1: String = "A"
+    var studentStatus_1: Student = Student();
+    println("Student 1 ${studentStatus_1.present(studentAttendance_1)}")
+
+    var studentAttendance_2: String = "L"
+    var studentStatus_2: Student = Student();
+    println("Student 2 ${studentStatus_2.isOnLeave(studentAttendance_2)}")
+}
+
+fun Student.isOnLeave(attendance: String): String {
+    if (attendance == "L")
+        return "LEAVE"
+    else return "INVALID DATA"
+}
+
+class Student {
+    fun present(attendance: String): String {
+        if (attendance == "P")
+            return "PRESENT"
+        else if (attendance == "A")
+            return "ABSENT"
+        else return "INVALID DATA"
+    }
+}
+
+

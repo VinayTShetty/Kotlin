@@ -1,0 +1,18 @@
+In Java 8 
+we cannot mutate(change) values of outside variables inside lambda.
+But in Kotlin we can change values of outside variables values.
+
+
+fun main(args: Array<String>) {
+    var result=0 // Outside variables
+    val programe=Programe()
+    programe.add(50,60, { x, y -> result = x + y }) // Changing the value of the Ouyside variable.
+    println("Value of the Result= ${result}")
+}
+
+class Programe {
+
+    fun add(num_1: Int, num_2: Int, lambdaExpressino: (Int, Int) -> Unit) {   // Higj level Function which expects function as a parameter
+        lambdaExpressino(num_1,num_2)
+    }
+}

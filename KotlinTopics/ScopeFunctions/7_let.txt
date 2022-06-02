@@ -1,0 +1,13 @@
+fun main() {
+    var name:String?="Vinay T Shetty"
+    /**
+     *  It won t be entering the inside the block statement.
+     *  so only null will be printed
+     */
+ var result= name?.let {
+        println("Name Length= "+it.length)
+        "Result is not avaliable"
+    }
+    println(result)
+}
+

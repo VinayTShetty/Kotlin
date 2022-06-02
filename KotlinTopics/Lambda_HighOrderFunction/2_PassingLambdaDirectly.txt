@@ -1,0 +1,40 @@
+fun main(args: Array<String>) {
+    val programe=Programe()
+    /**
+     * Lamdba Function
+     *   Passing Lambda function Directly
+     */
+    programe.add(50,60,{total:Int-> println("The Total Sum of 2 numbers is ${total}")})
+}
+
+class Programe {
+
+    /**
+     * Mehtod Parmeter explanation
+     *
+     *  variable Name          Method Signature         Return Type
+     *  lambdaExpressino:     (Int)             ->        Unit
+     */
+    fun add(num_1: Int, num_2: Int,lambdaExpressino:(Int)->Unit) {   // Higj level Function which expects function as a parameter
+        var total=num_1+num_2;
+        lambdaExpressino(total) //
+    }
+}
+
+
+/**
+ * Number of Ways to Define Lambda Function
+
+a) var lambdaExample= {myname:String-> println(myname)}
+
+ Explanation :-
+                     method params    method body
+var lambdaExample= {myname:String-> println(myname)}
+
+b) var lambdaExampl:(String)->Unit= {myname:String-> println(myname)}
+
+Explanation :-
+                          Signature    ReturnType    method params     method body
+      var lambdaExampl:  (String)->     Unit=        {myname:String-> println(myname)}
+
+ */
