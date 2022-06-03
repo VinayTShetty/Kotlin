@@ -1,0 +1,26 @@
+Safe call with let  ?.let{ // Code}
+
+
+This block of code get executed only if the value is not null.
+If the value is null then block of code won t be execute.
+********************************************************************************
+Case 1:-  Value will be printed if the reference variable is not null
+
+fun main() {
+    var name:String?="Vinay T Shetty"
+    name?.let {
+        println("The Reverse of the Employe Name ${it.reversed()}")
+    }
+}
+********************************************************************************
+Case 2:- Value won t be printed ,if the reference variable value is null
+
+fun main() {
+    var name:String?=null
+    name?.let {
+        println("The Reverse of the Employe Name ${it.reversed()}")
+    }
+    println("Hello World")
+}
+
+********************************************************************************

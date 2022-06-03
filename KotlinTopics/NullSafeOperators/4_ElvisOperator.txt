@@ -1,0 +1,57 @@
+Elvis Operator (?:)
+
+It is used to return the not null value even the conditional expression is null. 
+It is also used to check the null safety of values
+**************************************************************************************
+Case 1:- 
+When the null value is provided.
+The default values will be fetched from the Elvis operator.
+
+fun main() {
+    var name:String?=null
+    println("Reverse Name of the Employe= ${name?.reversed()?:"Name Not specified"}")
+}
+**************************************************************************************
+Case 2:-
+If the value is not null,then reference variable evaluated value will be obtained
+
+fun main() {
+    var name:String?="Vinay T Shetty"
+    println("Reverse Name of the Employe= ${name?.reversed()?:"Name Not specified"}")
+}
+**************************************************************************************
+Case 3:-
+Elvis operator just works just like conditional operator.
+Note:- In this condition only,we are not using safe call / non-null assertion 
+
+fun main() {
+    var name: String? = null
+    var length = if (name != null)
+        name.length
+    else -1
+    println("Lenght of the name= ${length}")
+}
+
+
+**************************************************************************************
+Key Points 
+
+If the value is null able then compulsary,we should use 
+safe call or non-null assertion operator if not we will get a error
+
+Error Code:- Without safe call or non null assertion
+
+fun main() {
+    var name:String?="Vinay T Shetty"
+    println("Reverse Name of the Employe= ${name.reversed()?:"Name Not specified"}")
+}
+
+Kotlin: Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type String?
+
+Correct Code :-With safe call 
+
+fun main() {
+    var name:String?="Vinay T Shetty"
+    println("Reverse Name of the Employe= ${name?.reversed()?:"Name Not specified"}")
+}
+**************************************************************************************

@@ -1,0 +1,23 @@
+Safe call ?.
+
+Return the Value if the reference variable value is not null.
+Return null value if the reference variable value is null.
+Should use it only if the user is OK for showing null as output
+
+
+
+********************************************************************************
+Case 1:- Return the value,If the reference variable value is not null.
+
+fun main() {
+    var name:String?="Vinay T Shetty"
+    println("Reverse of EmployeName= ${name?.reversed()}")
+}
+**********************************************************************************
+Case 2:- Return null value if the reference variable value is null.
+
+fun main() {
+    var name:String?=null
+    println("Reverse of EmployeName= ${name?.reversed()}")
+}
+***********************************************************************************

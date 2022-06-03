@@ -1,0 +1,60 @@
+There are 4 null Safety operator in Kotlin.
+
+Safe call operator ?.
+Not-null Assertion !!
+Elvis operator  ?:
+safe call with let  ?.{ // Code}
+
+****************************************************************************************
+
+We cannot apply a null value in kotlin.
+
+
+var name:String=null
+val name_1:String=null
+fun main() {
+    var name_2:String=null
+    var name_3:String=null
+}
+
+Kotlin: Null can not be a value of a non-null type String
+****************************************************************************************
+We can apply null values in kotlin by making it nullable 
+Null-able values can be applied to class Type also i.e Student,Employee
+
+var name:String?=null
+val name_1:String?=null
+fun main() {
+    var name_2:String?=null
+    var name_3:String?=null
+    println("Hello World")
+}
+****************************************************************************************
+If the variable reference is declared as nullable.
+It should be called using any of these below
+
+safe call ?.
+Non-null assesrtion !!
+
+
+Error Code :- 
+
+fun main() {
+    var name:String?=null
+    println("Reverse of EmployeName= ${name.reversed()}")
+}
+
+Correct Code Using Safe call :-
+
+fun main() {
+    var name:String?=null
+    println("Reverse of EmployeName= ${name?.reversed()}")
+}
+
+Correct Code using non-null assertion 
+fun main() {
+    var name:String?="Vinay T Shetty"
+    println("Reverse of EmployeName= ${name!!.reversed()}")
+}
+
+****************************************************************************************
