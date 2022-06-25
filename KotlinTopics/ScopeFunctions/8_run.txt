@@ -1,0 +1,55 @@
+Case 1:- Where the initial value is null
+
+
+fun main() {
+    /**
+     * Run Function
+     1) Refer to the context object using this keyword.
+     2) Return value is the lambda Result
+     3) If you want to operate on the nullable Object and avoid null pointer exception the we should use run.
+     */
+    var person:Person?=null
+    /**
+     * Compulsary we need to use safe call operator.if its a nullable operator.
+     */
+   var value= person?.run {
+        this.name="Lakshmi"
+        age=28
+        println("Name=${name}")
+        println("Age=${age}")
+        "New Values for the person Object has been assigned"
+    }
+    println(value)
+}
+
+class Person{
+    var name :String="Vinay T Shetty"
+    var age :Int=28
+}
+******************************************************************************************************************
+fun main() {
+    /**
+     * Run Function
+     1) Refer to the context object using this keyword.
+     2) Return value is the lambda Result)
+     3) If you want to operate on the nullable Object and avoid null pointer exception the we should use run.
+     */
+    var person:Person=Person()
+    /**
+     * Compulsary we need to use safe call operator.if its a nullable operator.
+     */
+   var value= person.run {
+        this.name="Lakshmi"
+        age=28
+        println("Name=${name}")
+        println("Age=${age}")
+        "New Values for the person Object has been assigned"
+    }
+    println(value)
+}
+
+class Person{
+    var name :String="Vinay T Shetty"
+    var age :Int=28
+}
+******************************************************************************************************************

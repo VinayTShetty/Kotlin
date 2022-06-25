@@ -1,6 +1,11 @@
 /**
  * The block will get executed only if the value is not null.
-  
+
+ Scope Function
+ Property 1:Refer to the context object by using 'it'
+ Property 2:Return value is the 'lambda result'.
+
+
  */
 
 fun main() {

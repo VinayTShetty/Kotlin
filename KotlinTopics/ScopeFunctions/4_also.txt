@@ -16,3 +16,78 @@ fun main() {
   println(value)
   println(anotherValue)
 }
+
+***************************************************************************************************
+fun main() {
+    /**
+     * also function is used to perfrorm some additional operation on the object after we have initialized it.
+     *
+     * 1)Refers to the context object by using 'it'
+     * 2)The return value is the 'context object'
+     */
+
+    /**
+     * Example 1
+     */
+    var value = 1
+    value.also {
+        /**
+         * Initial value assigned that is 1.
+         * Calculation is done based on that
+         */
+        println("Total value of the numbers are ${it+1}")
+    }.also {
+        /**
+         *  Nested also.
+         * Initial value assigned that is 1.
+         * Calculation is done based on that
+         */
+        println("Using also again Total value of the numbers are ${it+2}")
+    }
+    println("Original values of the number are ${value}")
+}
+***************************************************************************************************
+fun main() {
+    /**
+     * also function is used to perfrorm some additional operation on the object after we have initialized it.
+     *
+     * 1)Refers to the context object by using 'it'
+     * 2)The return value is the 'context object'
+     */
+
+    /**
+     * Apply new values to the Person Object.
+     */
+    var person: Person = Person().apply {
+        age = 28
+        name = "Lakshmi"
+    }
+    /**
+     * Use those values to print
+     */
+    with(person) {
+        println("With Functionality")
+        println("Name = ${name}")
+        println("Age = ${age}")
+    }
+    /**
+     *  Perform some other operation on the person Object
+     */
+    person.also {
+        it.name = "VinayLakshmi"
+        it.age = 100
+        println("Name = ${it.name}")
+        println("Name = ${it.age}")
+    }
+    /**
+     * Value will be updated in the original Object  as well.
+     */
+    println("Initial Value= \n Name=  ${person.name} Age= ${person.age}")
+
+}
+
+class Person {
+    var age: Int = 30
+    var name: String = "Vinay T Shetty"
+}
+***************************************************************************************************
