@@ -18,3 +18,8 @@ fun main(args: Array<String>) {
    println("Main Program Ends Thread Name= ${Thread.currentThread().name} Thread Name= ${Thread.currentThread().id}")
 }
 
+
+   /**
+    * This change of Thread is applicable to all suspending function.
+    * After the suspend function call,the next line of code will be executed from the same Thread or another Thread
+    */

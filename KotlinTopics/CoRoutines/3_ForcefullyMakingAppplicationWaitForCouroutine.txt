@@ -9,7 +9,7 @@ fun main(args: Array<String>) {
     */
    GlobalScope.launch {
       println("Fake Work Started Thread Name= ${Thread.currentThread().name} Thread Name= ${Thread.currentThread().id}")
-      Thread.sleep(1000) // Sleep the Thread for 1 seconds
+      Thread.sleep(1000) // Sleep the Thread for 1 seconds, so by default all the coroutine associated with this Thread will be dismissed for 1 milli seconds.
       println("Fake Work Ended Thread Name= ${Thread.currentThread().name} Thread Name= ${Thread.currentThread().id}")
    }
 

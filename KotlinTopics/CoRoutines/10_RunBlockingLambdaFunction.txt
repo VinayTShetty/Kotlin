@@ -10,7 +10,7 @@ import kotlinx.coroutines.runBlocking
 
 fun main(args: Array<String>) {
    println("Main Program Starts Thread Name= ${Thread.currentThread().name} Thread Name= ${Thread.currentThread().id}")
-   runBlocking {  //Created a co-routine that blocks the main Thread
+   runBlocking {  //Created a co-routine that blocks the main Thread / Curret Thread in which its running.
       GlobalScope.launch { // Creates a new Coroutine with New Thread T1
          println("RunBlocking Started Thread Name= ${Thread.currentThread().name} Thread Name= ${Thread.currentThread().id}")  // Thread T1
          delay(200) // Coroutine is suspended ,But Thread T1 is free and not Blocked
