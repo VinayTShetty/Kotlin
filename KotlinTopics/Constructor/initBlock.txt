@@ -1,3 +1,5 @@
+
+Constructor Important Points
 The primary constructor cannot contain any code, 
 The initialization code can be placed in a separate initializer block prefixed with the init keyword.
 
