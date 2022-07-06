@@ -34,4 +34,15 @@ fun main(args: Array<String>) {
 3)Returs a reference of the Job Object.
   Using the job object we can cancel() and join() the coroutine.
  Using the job coroutine we can cancel the coroutine and wait () for the coroutine to finish.
+
+ 4)launch coroutine is inside the scope of runBlocking bcoz of that,In inherits the Thread scope i.e
+
+Example 1 :- 
+ If the runBlocking{} scope is running on Main Thread
+ launch {} coroutine within the scope will also run on the MainThread.
+
+Example 2 :- 
+ If the runBlocking{} scope is running on Thread T1
+ launch {} coroutine within the scope will also run on the Thread T1.
+
  */
