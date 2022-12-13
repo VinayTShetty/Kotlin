@@ -17,11 +17,12 @@ fun main(args: Array<String>) {
         }
 
         /**
-         * if we use join() function then ,It will wait untill the coroutine is finished.
-         * If we use join() function() then we cannot use the value which is Obtained from the async{} function.   
+         * if we want to use the return value then we need to use the await() function.
+    	 *  It s similar to Future and promise in case of JS.
+         *  await() and join() both are suspend function.It should be called from another suspending function
          */
-       var name= jobDefered.join()
-        println("Obtained Value = ${name}") // o/p :- Obtained Value = kotlin.Unit
+       var name= jobDefered.await()
+        println("Obtained Value = ${name}")
     }
 
 }

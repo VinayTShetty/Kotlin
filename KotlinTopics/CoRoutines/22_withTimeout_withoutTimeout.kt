@@ -1,3 +1,31 @@
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
+import kotlin.concurrent.thread
+
+fun main() = runBlocking {
+    withTimeout(200) {
+        for (i in 0..200){
+            print(i)
+            delay(100)
+        }
+    }
+}
+
+/**
+ * Output
+"C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.3\jbr\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.3\lib\idea_rt.jar=57296:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.3\bin" -Dfile.encoding=UTF-8 -classpath "D:\Tutorials\KotlinTutorials\Kotlin\KotlinTopics\ProjectCode\out\production\ProjectCode;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.3\plugins\Kotlin\kotlinc\lib\kotlin-stdlib.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.3\plugins\Kotlin\kotlinc\lib\kotlin-reflect.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.3\plugins\Kotlin\kotlinc\lib\kotlin-test.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlinx\kotlinx-coroutines-core\1.6.4\kotlinx-coroutines-core-1.6.4.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlinx\kotlinx-coroutines-core-jvm\1.6.4\kotlinx-coroutines-core-jvm-1.6.4.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.6.21\kotlin-stdlib-jdk8-1.6.21.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.6.21\kotlin-stdlib-1.6.21.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.6.21\kotlin-stdlib-jdk7-1.6.21.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.6.21\kotlin-stdlib-common-1.6.21.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlinx\kotlinx-coroutines-android\1.5.1\kotlinx-coroutines-android-1.5.1.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlinx\kotlinx-coroutines-core-jvm\1.5.1\kotlinx-coroutines-core-jvm-1.5.1.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.5.20\kotlin-stdlib-common-1.5.20.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.5.20\kotlin-stdlib-jdk8-1.5.20.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.5.20\kotlin-stdlib-1.5.20.jar;C:\Users\vinayts\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.5.20\kotlin-stdlib-jdk7-1.5.20.jar" DeleteKt
+01Exception in thread "main" kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 200 ms
+at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:184)
+at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:154)
+at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:508)
+at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:284)
+at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:108)
+at java.base/java.lang.Thread.run(Thread.java:829)
+
+Process finished with exit code 1
+ */
+
 //---------------------------------------------------------------------------------------------------------------------------
 import kotlinx.coroutines.*
 fun main(args: Array<String>) = runBlocking {
@@ -79,6 +107,59 @@ Main Program Ends : main
 
 Process finished with exit code 0
 //---------------------------------------------------------------------------------------------------------------------------
+
+/*
+  We can remove try catch block from withTimeoutOrnull as it wont throw any exception.
+  If the task is not finished within the specified time.
+ */
+
+import kotlinx.coroutines.*
+
+fun main() = runBlocking {
+    withTimeoutOrNull(50) {
+        for (i in 0..500) {
+            delay(100)
+            println(i)
+        }
+    }
+    println("Main Function ${Thread.currentThread().id} ${Thread.currentThread().name}")
+}
+
+//---------------------------------------------------------------------------------------------------------------------------
+
+/**
+   if using runBlocking,then in the main Function we need to return something.
+   If not retured willl get a error message
+ */
+
+ // Valid Case
+ import kotlinx.coroutines.*
+fun main()= runBlocking{
+    withTimeoutOrNull(500){
+    }
+    println("Main Function ${Thread.currentThread().id} ${Thread.currentThread().name}")
+}
+
+// Invalid Case
+import kotlinx.coroutines.*
+fun main()= runBlocking{
+    withTimeoutOrNull(500){
+    }
+ 
+}
+
+/**
+ * o/p
+D:\Tutorials\KotlinTutorials\Kotlin\KotlinTopics\ProjectCode\src\Delete\Delete.kt:2
+Kotlin: Conflicting overloads: public fun main(): Unit? defined in root package in file Delete.kt, public fun main(): Unit defined in root package, public fun main(): Unit defined in root package, public fun main(): Unit defined in root package, public fun main(): Unit defined in root package
+ */
+
+//---------------------------------------------------------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------------------------------------
 import kotlinx.coroutines.*
 fun main(args: Array<String>) = runBlocking {
     println("Main Program Starts : ${Thread.currentThread().name}")
@@ -132,6 +213,26 @@ Main Program Ends : main
 
 Process finished with exit code 0
 //---------------------------------------------------------------------------------------------------------------------------
+/**
+ *  withTimeoutOrNull
+ *  This will return a value from the coroutine from the Lambda Result.
+ *  If the result is not Obtained with the specified time ,then the result will be null.   
+ */
+
+import kotlinx.coroutines.*
+
+fun main() = runBlocking {
+  val resutl:String?=  withTimeoutOrNull(500) {
+        for (i in 0..10) {
+            println(i)
+        }
+        "I am Finsihed"
+    }
+    println("Main Function ${Thread.currentThread().id} ${Thread.currentThread().name}")
+    println("WithTimeOutOrNull= ${resutl}")
+}
+
+
 //---------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------

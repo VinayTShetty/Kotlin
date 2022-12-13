@@ -1,4 +1,4 @@
-import javafx.application.Application.launch
+
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.*
@@ -17,10 +17,10 @@ fun main(args: Array<String>) {
         }
 
         /**
-         * if we want to use the return value then we need to use the await() function.
-	 *  It s similar to Future and promise in case of JS.
+         * if we use join() function then ,It will wait untill the coroutine is finished.
+         * If we use join() function() then we cannot use the value
          */
-       var name= jobDefered.await()
+        var name= jobDefered.join()
         println("Obtained Value = ${name}")
     }
 

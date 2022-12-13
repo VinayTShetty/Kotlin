@@ -16,4 +16,3 @@ fun main(args: Array<String>) {
    Thread.sleep(2000)
    println("Main Program Ends Thread Name= ${Thread.currentThread().name} Thread Name= ${Thread.currentThread().id}")
 }
-

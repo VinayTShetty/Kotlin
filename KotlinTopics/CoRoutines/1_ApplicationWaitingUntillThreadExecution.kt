@@ -15,7 +15,6 @@ fun main(args: Array<String>) {
       Thread.sleep(1000) // Sleep the Thread for 1 seconds
       println("Fake Work Ended Thread Name= ${Thread.currentThread().name} Thread Name= ${Thread.currentThread().id}")
    }
-
    println("Main Program Ends Thread Name= ${Thread.currentThread().name} Thread Name= ${Thread.currentThread().id}")
 }
 
