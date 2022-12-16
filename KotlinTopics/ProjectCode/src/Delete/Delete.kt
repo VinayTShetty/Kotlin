@@ -1,18 +1,22 @@
-/**
- *  withTimeoutOrNull
- *  This will return a value from the coroutine from the Lambda Result.
- */
-
 import kotlinx.coroutines.*
 
 fun main() = runBlocking {
-  val resutl:String?=  withTimeoutOrNull(500) {
-        for (i in 0..10) {
-            println(i)
-        }
-        "I am Finsihed"
-    }
-    println("Main Function ${Thread.currentThread().id} ${Thread.currentThread().name}")
-    println("WithTimeOutOrNull= ${resutl}")
-}
+    println("Main Start ${Thread.currentThread().name}")
+    delay(100)
+    launch(Dispatchers.Unconfined) {
+        println("Parent-Start- ${Thread.currentThread().name}")
+        delay(100)
+        /**
+         *  'coroutineContext' will take the Context of the immediate Parent.i.e Dispatchers.Unconfined
+         */
+        launch(coroutineContext) {
+            println("Child-Start  ${Thread.currentThread().name}")
 
+            delay(100)
+            println("Child-End  ${Thread.currentThread().name}") // its like a confined Dispatcher.So right after the delay().It will execute on the Main Thread only.
+
+        }
+        println("Parent-End- ${Thread.currentThread().name}")
+   }
+    println("Main End ${Thread.currentThread().name}")
+}
