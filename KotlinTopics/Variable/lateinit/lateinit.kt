@@ -1,33 +1,22 @@
-val (Immutable Mutable)
+/**
+  Only mutable properties can be applied for lateint.
+ */
 
-We cannot change the value of variable which is declared using val keyword.
-
-Programe
-
+lateinit var name: String
 fun main(args: Array<String>) {
-    val name:String="Vinay T Shetty"
-    /**
-     * Changing the value of the variable
-     */
-    name="Lakshmi"
-    println("Name=${name}")
-}
-
-Val cannot be reassigned
-*******************************************************************************************************************
-Assigining later in the programe is allowed
-
-
-fun main(args: Array<String>) {
-    val name:String
-    /**
-     * Assigining Later is valid
-     */
     name="Vinay T Shetty"
-    println("Name=${name}")
+    println(name)
 }
+
 *******************************************************************************************************************
-*******************************************************************************************************************
+/**
+ * 'lateinit' modifier is allowed only on mutable properties
+ */
+lateinit val name: String
+fun main(args: Array<String>) {
+    name="Vinay T Shetty"
+    println(name)
+}
 *******************************************************************************************************************
 *******************************************************************************************************************
 *******************************************************************************************************************
